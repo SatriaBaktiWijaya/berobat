@@ -139,8 +139,18 @@ export default function LocationFinder() {
               return (
                 <div
                   key={loc.id}
+                  role="button"
+                  tabIndex={0}
+                  aria-label={`Pilih lokasi ${loc.name}`}
+                  aria-pressed={isSelected}
                   onClick={() => setSelectedLocationId(loc.id)}
-                  className={`cursor-pointer rounded-2xl p-6 border transition-all flex flex-col justify-between ${
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                      e.preventDefault();
+                      setSelectedLocationId(loc.id);
+                    }
+                  }}
+                  className={`cursor-pointer rounded-2xl p-6 border transition-all flex flex-col justify-between focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 ${
                     isSelected
                       ? 'bg-teal-50/40 border-brand-500 shadow-md ring-1 ring-brand-500'
                       : 'bg-white border-slate-200 hover:border-slate-300 shadow-sm'
@@ -213,3 +223,4 @@ export default function LocationFinder() {
     </section>
   );
 }
+

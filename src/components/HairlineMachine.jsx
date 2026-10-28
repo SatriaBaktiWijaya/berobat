@@ -229,6 +229,8 @@ export default function HairlineMachine() {
       onPointerMove={handlePointerMove}
       onPointerEnter={handlePointerEnter}
       onPointerLeave={handlePointerLeave}
+      onPointerUp={handlePointerLeave}
+      onPointerCancel={handlePointerLeave}
       className="relative w-full h-[360px] sm:h-[420px] lg:h-[480px] flex items-center justify-center cursor-grab active:cursor-grabbing select-none"
     >
       <canvas
@@ -240,11 +242,11 @@ export default function HairlineMachine() {
 
       {/* Floating Interactive Badge */}
       <div 
-        className={`absolute bottom-3 left-1/2 -translate-x-1/2 px-3 py-1.5 rounded-full text-xs font-medium bg-white/90 backdrop-blur-sm border border-slate-200/80 text-slate-600 shadow-sm transition-opacity duration-200 ${
+        className={`absolute bottom-3 left-1/2 -translate-x-1/2 max-w-[90%] px-3.5 py-1.5 rounded-full text-xs font-medium bg-white/90 backdrop-blur-sm border border-slate-200/80 text-slate-600 shadow-sm transition-opacity duration-200 text-center ${
           isHovered ? 'opacity-90' : 'opacity-70'
         }`}
       >
-        <span>💡 Gerakkan kursor untuk memutar sudut mesin 3D</span>
+        <span>💡 Sentuh atau gerakkan kursor untuk memutar sudut mesin 3D</span>
       </div>
     </div>
   );

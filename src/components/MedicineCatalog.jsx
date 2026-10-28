@@ -90,16 +90,37 @@ export default function MedicineCatalog() {
             ))}
           </div>
         ) : (
-          <div className="bg-white rounded-2xl border border-slate-200 p-10 text-center max-w-md mx-auto space-y-3">
+          <div className="bg-white rounded-2xl border border-slate-200 p-8 sm:p-10 text-center max-w-lg mx-auto space-y-4 shadow-sm">
             <div className="w-12 h-12 bg-amber-50 text-amber-600 rounded-full flex items-center justify-center mx-auto">
               <AlertCircle className="w-6 h-6" />
             </div>
             <h3 className="text-base font-bold text-slate-800">
-              Obat atau Keluhan Tidak Ditemukan
+              Obat atau Keluhan Belum Tersedia di Mesin
             </h3>
             <p className="text-xs text-slate-500 leading-relaxed">
-              Mesin Berobat hanya mendistribusikan obat bebas resmi untuk keluhan umum darurat. Untuk keluhan spesifik atau obat resep, silakan konsultasikan ke dokter atau apotek terdekat.
+              Mesin Berobat berfokus pada pertolongan pertama & obat bebas darurat. Jangan khawatir—bila Anda butuh arahan medis atau obat khusus lainnya, hubungi layanan siaga kami:
             </p>
+
+            {/* Kontak Bantuan Apoteker & Hotline */}
+            <div className="bg-slate-50 rounded-xl p-3.5 border border-slate-200/80 flex flex-col sm:flex-row items-center justify-around gap-2.5 text-xs text-left">
+              <div>
+                <span className="font-semibold text-slate-600 block text-[11px]">Hotline Siaga 24 Jam:</span>
+                <span className="font-mono text-brand-700 font-bold text-sm">0800-1-BEROBAT</span>
+              </div>
+              <div className="sm:border-l sm:border-slate-200 sm:pl-4">
+                <span className="font-semibold text-slate-600 block text-[11px]">Apoteker Siaga (WhatsApp):</span>
+                <a
+                  href="https://wa.me/6281200001111?text=Halo%20Apoteker%20Berobat,%20saya%20butuh%20bantuan%20obat"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-emerald-700 font-bold hover:underline inline-flex items-center gap-1"
+                >
+                  <span>Chat Apoteker</span>
+                  <span>&rarr;</span>
+                </a>
+              </div>
+            </div>
+
             <button
               type="button"
               onClick={() => {
@@ -117,3 +138,4 @@ export default function MedicineCatalog() {
     </section>
   );
 }
+

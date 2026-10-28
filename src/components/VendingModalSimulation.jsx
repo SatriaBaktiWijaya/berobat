@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { X, QrCode, CheckCircle2, PackageCheck, Sparkles, ArrowRight, RefreshCw, Smartphone } from 'lucide-react';
 
 export default function VendingModalSimulation({ isOpen, onClose }) {
@@ -8,6 +8,17 @@ export default function VendingModalSimulation({ isOpen, onClose }) {
     price: 4500,
     pack: 'Strip isi 4 tablet',
   });
+
+  useEffect(() => {
+    if (!isOpen) return;
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') {
+        onClose();
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isOpen, onClose]);
 
   if (!isOpen) return null;
 
@@ -28,6 +39,9 @@ export default function VendingModalSimulation({ isOpen, onClose }) {
   return (
     <div 
       className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/70 backdrop-blur-sm animate-in fade-in duration-200"
+      onClick={(e) => {
+        if (e.target === e.currentTarget) onClose();
+      }}
       role="dialog"
       aria-modal="true"
       aria-labelledby="sim-title"
@@ -182,3 +196,4 @@ export default function VendingModalSimulation({ isOpen, onClose }) {
     </div>
   );
 }
+
