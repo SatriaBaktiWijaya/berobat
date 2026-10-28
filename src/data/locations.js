@@ -78,3 +78,4 @@ export const LOCATIONS_DATA = [
     featured: true,
   },
 ];
+

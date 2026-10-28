@@ -14,3 +14,4 @@ describe('HowItWorks Component', () => {
     expect(screen.getByText(/Simulasi Layar Mesin Berobat/i)).toBeInTheDocument();
   });
 });
+

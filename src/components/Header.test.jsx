@@ -10,3 +10,4 @@ describe('Header Component', () => {
     expect(screen.getByText(/24\/7 Siap Sedia/i)).toBeInTheDocument();
   });
 });
+

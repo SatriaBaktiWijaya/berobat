@@ -9,3 +9,4 @@ describe('HairlineMachine Canvas', () => {
     expect(canvas).toBeInTheDocument();
   });
 });
+

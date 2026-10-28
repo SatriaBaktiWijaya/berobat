@@ -9,3 +9,4 @@ describe('Hero Section', () => {
     expect(screen.getByRole('link', { name: /Temukan Mesin Terdekat/i })).toBeInTheDocument();
   });
 });
+

@@ -128,3 +128,4 @@ export const MEDICINES_DATA = [
     badgeText: 'Hangat & Melegakan',
   },
 ];
+

@@ -10,3 +10,4 @@ describe('MedicineCatalog Component', () => {
     expect(screen.getByText(/Antasida Doen/i)).toBeInTheDocument();
   });
 });
+
