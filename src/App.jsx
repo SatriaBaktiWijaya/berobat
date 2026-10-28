@@ -9,7 +9,7 @@ import Footer from './components/Footer';
 
 export default function App() {
   return (
-    <div className="min-h-screen flex flex-col bg-slate-50 text-slate-800">
+    <div className="min-h-screen flex flex-col bg-[#FAFAF9] text-[#121A19] font-sans">
       <Header />
       <main className="flex-1">
         <Hero />

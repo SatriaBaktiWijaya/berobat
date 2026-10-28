@@ -1,38 +1,32 @@
 import React from 'react';
-import { MapPin, Search, ShieldCheck, Thermometer, Zap, Sparkles } from 'lucide-react';
+import { MapPin, Search, Thermometer, ShieldCheck, Zap } from 'lucide-react';
 import HairlineMachine from './HairlineMachine';
 
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden pt-8 pb-16 lg:pt-16 lg:pb-24 bg-gradient-to-b from-white via-brand-50/30 to-slate-50 border-b border-slate-200/60">
+    <section className="relative pt-12 pb-16 lg:pt-16 lg:pb-24 bg-[#FAFAF9]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
-          {/* Left Column: Reassuring Hero Copy */}
-          <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
-            {/* Pill Tag */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-brand-100/80 text-brand-800 border border-brand-200">
-              <Sparkles className="w-3.5 h-3.5 text-brand-600" />
-              <span>Inovasi Kesehatan Cerdas Pertama di Ruang Publik</span>
-            </div>
+        {/* Monumental Hero Headline (Full Width - Exactly 2 lines at all desktop and mobile viewports) */}
+        <div className="mb-10 lg:mb-12">
+          <h1 className="font-display text-[26px] sm:text-5xl lg:text-7xl xl:text-8xl font-black text-pine-900 tracking-tight leading-[0.88] uppercase motion-reveal">
+            <span className="block">Tiba-tiba Butuh Obat di Jalan?</span>
+            <span className="block text-signal-orange">Berobat Siap 24 Jam.</span>
+          </h1>
+        </div>
 
-            {/* Main Headline */}
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-[1.15]">
-              Tiba-tiba Butuh Obat di Jalan?{' '}
-              <span className="bg-gradient-to-r from-brand-700 via-brand-600 to-teal-600 bg-clip-text text-transparent">
-                Berobat Hadir 24 Jam di Ruang Publik
-              </span>
-            </h1>
-
-            {/* Reassuring Empathic Description */}
-            <p className="text-base sm:text-lg text-slate-600 leading-relaxed max-w-2xl mx-auto lg:mx-0">
-              Kepala mendadak berdenyut saat jam kerja, maag kambuh di stasiun transit, atau perlu plester luka kecil? Jangan panik saat apotek jauh atau tutup. Dapatkan obat esensial dan P3K berstandar BPOM secara higienis dalam 30 detik melalui smart vending machine Berobat.
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+          {/* Left Column: Narrative & Action (Spans 7 cols) */}
+          <div className="lg:col-span-7 space-y-8 text-left">
+            {/* Disciplined Lead Copy */}
+            <p className="text-lg sm:text-xl text-pine-700 leading-relaxed max-w-[54ch] motion-reveal">
+              Pusing mendadak di kantor, maag perih di stasiun transit, atau butuh plester luka? Dapatkan obat bebas berizin resmi BPOM langsung dari unit smart vending machine Berobat dalam 30 detik tanpa antre.
             </p>
 
-            {/* Action CTA Buttons */}
-            <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
+            {/* Action Buttons */}
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-2 motion-reveal">
               <a
                 href="#lokasi"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 py-3.5 text-base font-bold text-white bg-brand-700 hover:bg-brand-800 active:bg-brand-900 rounded-xl shadow-md shadow-brand-700/25 transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-brand-600"
+                className="inline-flex items-center justify-center gap-3 px-7 py-4 text-base font-bold text-white bg-signal-orange hover:bg-signal-hover active:bg-signal-hover rounded-lg transition-transform hover:-translate-y-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-signal-orange"
               >
                 <MapPin className="w-5 h-5 text-white" />
                 <span>Temukan Mesin Terdekat</span>
@@ -40,39 +34,53 @@ export default function Hero() {
 
               <a
                 href="#katalog"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 text-base font-semibold text-slate-700 bg-white hover:bg-slate-50 hover:text-slate-900 border border-slate-300 rounded-xl shadow-sm transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500"
+                className="inline-flex items-center justify-center gap-2.5 px-7 py-4 text-base font-bold text-pine-900 bg-white hover:bg-chalk-100 border-2 border-pine-900 rounded-lg transition-transform hover:-translate-y-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-pine-800"
               >
-                <Search className="w-4 h-4 text-slate-500" />
-                <span>Lihat Koleksi Obat Bebas</span>
+                <Search className="w-4 h-4 text-pine-800" />
+                <span>Koleksi Obat Bebas</span>
               </a>
             </div>
 
-            {/* Micro Highlights */}
-            <div className="pt-4 grid grid-cols-3 gap-3 border-t border-slate-200/80 max-w-lg mx-auto lg:mx-0 text-left">
-              <div className="flex items-center gap-2">
-                <Thermometer className="w-4 h-4 text-brand-600 shrink-0" />
-                <span className="text-xs font-semibold text-slate-700">Suhu 20–25°C</span>
+            {/* Core Verification Facts */}
+            <div className="pt-6 grid grid-cols-3 gap-6">
+              <div className="motion-reveal">
+                <span className="font-display text-2xl sm:text-3xl font-black text-pine-900 block leading-none">
+                  20°–25°C
+                </span>
+                <span className="text-xs sm:text-sm text-pine-700 font-medium mt-1 block">
+                  Suhu Farmasi Terjaga
+                </span>
               </div>
-              <div className="flex items-center gap-2">
-                <ShieldCheck className="w-4 h-4 text-emerald-600 shrink-0" />
-                <span className="text-xs font-semibold text-slate-700">100% BPOM</span>
+              <div className="motion-reveal">
+                <span className="font-display text-2xl sm:text-3xl font-black text-pine-900 block leading-none">
+                  100%
+                </span>
+                <span className="text-xs sm:text-sm text-pine-700 font-medium mt-1 block">
+                  Obat Resmi BPOM
+                </span>
               </div>
-              <div className="flex items-center gap-2">
-                <Zap className="w-4 h-4 text-amber-500 shrink-0" />
-                <span className="text-xs font-semibold text-slate-700">QRIS 30 Detik</span>
+              <div className="motion-reveal">
+                <span className="font-display text-2xl sm:text-3xl font-black text-pine-900 block leading-none">
+                  30 DETIK
+                </span>
+                <span className="text-xs sm:text-sm text-pine-700 font-medium mt-1 block">
+                  Selesai Scan QRIS
+                </span>
               </div>
             </div>
           </div>
 
-          {/* Right Column: Hairline Interactive Isometric Vending Machine */}
-          <div className="lg:col-span-5 flex flex-col items-center justify-center relative">
-            <div className="w-full max-w-md bg-gradient-to-b from-white to-slate-100/80 rounded-2xl p-4 border border-slate-200/90 shadow-xl shadow-slate-200/50">
-              <div className="flex items-center justify-between pb-3 border-b border-slate-100 text-xs text-slate-500 font-medium">
-                <span className="flex items-center gap-1.5 text-brand-700 font-bold">
-                  <span className="w-2 h-2 rounded-full bg-emerald-500" />
+          {/* Right Column: Physical Vending Machine Canvas (Spans 5 cols) */}
+          <div className="lg:col-span-5 flex flex-col items-center justify-center">
+            <div className="w-full bg-white rounded-2xl p-6 border-2 border-pine-900 relative motion-reveal">
+              <div className="flex items-center justify-between pb-4 text-xs font-bold text-pine-800">
+                <span className="flex items-center gap-2">
+                  <span className="w-2.5 h-2.5 rounded-full bg-emerald-600 motion-pulse" />
                   Unit Cerdas Berobat #01
                 </span>
-                <span className="bg-slate-100 text-slate-600 px-2 py-0.5 rounded font-mono">ISOMETRIC 3D</span>
+                <span className="text-pine-600 font-semibold text-xs">
+                  Model interaktif 3D
+                </span>
               </div>
               <HairlineMachine />
             </div>
@@ -82,4 +90,3 @@ export default function Hero() {
     </section>
   );
 }
-

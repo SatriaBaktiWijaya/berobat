@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { MapPin, Search, Navigation, Thermometer, CheckCircle2, Clock, Train, Building2, GraduationCap, Plane, AlertCircle } from 'lucide-react';
+import { MapPin, Search, Navigation, Thermometer, CheckCircle2, Train, Building2, GraduationCap, Plane, AlertCircle } from 'lucide-react';
 import { LOCATIONS_DATA, LOCATION_CATEGORIES } from '../data/locations';
 
 export default function LocationFinder() {
@@ -32,37 +32,33 @@ export default function LocationFinder() {
   };
 
   return (
-    <section id="lokasi" className="py-16 sm:py-20 bg-white border-b border-slate-200/80">
+    <section id="lokasi" className="py-20 bg-white overflow-x-clip">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Heading */}
-        <div className="text-center max-w-3xl mx-auto mb-10">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-800 border border-emerald-200 mb-3">
-            <MapPin className="w-3.5 h-3.5 text-emerald-600" />
-            <span>Jaringan Titik Mesin Publik</span>
-          </div>
-          <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+        <div className="max-w-3xl mb-12">
+          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-black text-pine-900 tracking-tight leading-tight uppercase">
             Temukan Smart Vending Machine Berobat Terdekat
           </h2>
-          <p className="mt-3 text-sm sm:text-base text-slate-600">
-            Ditempatkan di titik mobilitas tinggi: stasiun MRT/KRL, bandara, mall, dan kampus. Semua unit terhubung online dengan pemantauan suhu dan stok farmasi otomatis.
+          <p className="mt-4 text-base sm:text-lg text-pine-700 leading-relaxed max-w-[60ch]">
+            Ditempatkan di titik mobilitas tinggi: stasiun MRT/KRL, bandara, mall, dan universitas dengan pemantauan suhu dan stok farmasi otomatis.
           </p>
 
           {/* Search bar */}
-          <div className="mt-6 max-w-lg mx-auto relative">
-            <Search className="w-5 h-5 text-slate-400 absolute left-4 top-1/2 -translate-y-1/2 pointer-events-none" />
+          <div className="mt-8 max-w-xl relative">
+            <Search className="w-5 h-5 text-pine-600 absolute left-4 top-1/2 -translate-y-1/2 pointer-events-none" />
             <input
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Cari stasiun, mall, atau kampus..."
-              className="w-full pl-11 pr-4 py-3 bg-slate-50 hover:bg-white focus:bg-white rounded-xl border border-slate-200 text-sm placeholder:text-slate-400 text-slate-800 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-brand-500 shadow-sm transition-all"
+              className="w-full pl-12 pr-4 py-3.5 bg-chalk-100 focus:bg-white rounded-lg border-2 border-pine-900 text-sm text-pine-900 placeholder:text-pine-600 font-medium focus:outline-none focus:ring-2 focus:ring-signal-orange transition-colors"
               aria-label="Cari titik mesin Berobat"
             />
             {searchQuery && (
               <button
                 type="button"
                 onClick={() => setSearchQuery('')}
-                className="absolute right-3 top-1/2 -translate-y-1/2 text-xs font-medium text-slate-400 hover:text-slate-600 px-2 py-1"
+                className="absolute right-3 top-1/2 -translate-y-1/2 text-xs font-bold text-pine-700 hover:text-pine-950 px-2 py-1"
               >
                 Hapus
               </button>
@@ -71,17 +67,17 @@ export default function LocationFinder() {
         </div>
 
         {/* Filter Categories */}
-        <div className="flex items-center justify-start sm:justify-center gap-2 overflow-x-auto pb-4 mb-8 no-scrollbar">
+        <div className="flex flex-wrap gap-2.5 mb-10">
           {LOCATION_CATEGORIES.map((cat) => {
             const isSelected = selectedType === cat.id;
             return (
               <button
                 key={cat.id}
                 onClick={() => setSelectedType(cat.id)}
-                className={`whitespace-nowrap px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all shrink-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 ${
+                className={`px-4 py-2.5 rounded-lg text-sm font-bold transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-pine-900 ${
                   isSelected
-                    ? 'bg-brand-700 text-white shadow-sm shadow-brand-700/20'
-                    : 'bg-slate-50 text-slate-600 hover:bg-slate-100 hover:text-slate-900 border border-slate-200/80'
+                    ? 'bg-pine-900 text-white shadow-none'
+                    : 'bg-chalk-100 text-pine-900 hover:bg-chalk-200'
                 }`}
               >
                 {cat.label}
@@ -91,21 +87,24 @@ export default function LocationFinder() {
         </div>
 
         {/* Public Transit Network Schematic Visualization */}
-        <div className="mb-10 p-5 rounded-2xl bg-gradient-to-r from-slate-900 via-slate-800 to-teal-950 text-white shadow-md">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-slate-700/80 gap-3">
+        <div className="mb-10 p-6 sm:p-8 rounded-2xl bg-pine-900 text-white">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-4 gap-3">
             <div>
-              <span className="text-xs font-semibold text-brand-400 uppercase tracking-wider block">Skematik Jalur Transit</span>
-              <h3 className="text-base font-bold text-white">Konektivitas Jaringan Vending Machine di Area Transit Publik</h3>
+              <span className="text-xs font-semibold text-teal-300 block mb-1">
+                Skematik jalur transit publik
+              </span>
+              <h3 className="text-lg font-bold text-white">
+                Konektivitas Jaringan Vending Machine di Area Transit Publik
+              </h3>
             </div>
-            <div className="flex items-center gap-3 text-xs text-slate-300">
-              <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-emerald-400" /> Unit Online</span>
-              <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-teal-400" /> Suhu Terjaga 20-25°C</span>
+            <div className="flex items-center gap-4 text-xs text-slate-300">
+              <span className="flex items-center gap-2"><span className="w-2.5 h-2.5 rounded-full bg-emerald-400" /> Unit Online</span>
+              <span className="flex items-center gap-2"><span className="w-2.5 h-2.5 rounded-full bg-teal-300" /> Suhu 20–25°C</span>
             </div>
           </div>
 
-          {/* Interactive Route Nodes */}
-          <div className="py-6 flex items-center justify-between overflow-x-auto gap-4 relative">
-            <div className="absolute top-1/2 left-8 right-8 h-1 bg-gradient-to-r from-teal-500 via-emerald-400 to-sky-400 -translate-y-1/2 z-0 hidden md:block" />
+          {/* Interactive Route Nodes - CSS Grid for zero horizontal overflow at any width */}
+          <div className="py-6 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 relative">
             {LOCATIONS_DATA.map((loc) => {
               const isSelected = selectedLocationId === loc.id;
               const Icon = getTypeIcon(loc.type);
@@ -113,17 +112,17 @@ export default function LocationFinder() {
                 <button
                   key={loc.id}
                   onClick={() => setSelectedLocationId(loc.id)}
-                  className={`relative z-10 flex flex-col items-center text-center p-3 rounded-xl transition-all min-w-[150px] shrink-0 ${
-                    isSelected ? 'bg-white/15 ring-2 ring-brand-400' : 'hover:bg-white/10'
+                  className={`relative z-10 flex flex-col items-center text-center p-3 rounded-xl transition-all ${
+                    isSelected ? 'bg-white/20 border-2 border-signal-orange' : 'hover:bg-white/10'
                   }`}
                 >
-                  <div className={`w-10 h-10 rounded-full flex items-center justify-center mb-2 shadow-sm ${
-                    isSelected ? 'bg-brand-500 text-white' : 'bg-slate-700 text-slate-300'
+                  <div className={`w-10 h-10 rounded-full flex items-center justify-center mb-2 ${
+                    isSelected ? 'bg-signal-orange text-white' : 'bg-pine-800 text-teal-200'
                   }`}>
                     <Icon className="w-5 h-5" />
                   </div>
                   <span className="text-xs font-bold text-white line-clamp-1">{loc.name}</span>
-                  <span className="text-[10px] text-teal-300 mt-0.5">{loc.temperature} • 24 Jam</span>
+                  <span className="text-xs text-teal-200 mt-0.5">{loc.temperature} • 24 Jam</span>
                 </button>
               );
             })}
@@ -134,7 +133,6 @@ export default function LocationFinder() {
         {filteredLocations.length > 0 ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {filteredLocations.map((loc) => {
-              const Icon = getTypeIcon(loc.type);
               const isSelected = selectedLocationId === loc.id;
               return (
                 <div
@@ -150,51 +148,46 @@ export default function LocationFinder() {
                       setSelectedLocationId(loc.id);
                     }
                   }}
-                  className={`cursor-pointer rounded-2xl p-6 border transition-all flex flex-col justify-between focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 ${
+                  className={`cursor-pointer rounded-2xl p-7 transition-all flex flex-col justify-between motion-reveal focus:outline-none focus-visible:border-2 focus-visible:border-pine-900 ${
                     isSelected
-                      ? 'bg-teal-50/40 border-brand-500 shadow-md ring-1 ring-brand-500'
-                      : 'bg-white border-slate-200 hover:border-slate-300 shadow-sm'
+                      ? 'bg-white border-2 border-pine-900'
+                      : 'bg-chalk-100 hover:bg-chalk-200/70'
                   }`}
                 >
                   <div>
                     {/* Header with Type & Status */}
-                    <div className="flex items-center justify-between gap-2 mb-3">
-                      <div className="flex items-center gap-1.5 text-xs font-semibold text-brand-700 bg-brand-50 px-2.5 py-1 rounded-md">
-                        <Icon className="w-3.5 h-3.5" />
-                        <span>{loc.categoryLabel}</span>
-                      </div>
-                      <span className="flex items-center gap-1 text-[11px] font-semibold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200">
-                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+                    <div className="flex items-center justify-between gap-2 mb-4">
+                      <span className="text-xs font-bold text-pine-900 bg-white px-3 py-1 rounded">
+                        {loc.categoryLabel}
+                      </span>
+                      <span className="flex items-center gap-1.5 text-xs font-bold text-emerald-800 bg-emerald-50 px-2.5 py-1 rounded">
+                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-600" />
                         {loc.operationalHours}
                       </span>
                     </div>
 
                     {/* Venue Name */}
-                    <h3 className="text-lg font-bold text-slate-900 mb-1">
+                    <h3 className="font-display text-2xl font-black text-pine-900 uppercase tracking-tight mb-1">
                       {loc.name}
                     </h3>
-                    <p className="text-xs text-slate-500 font-medium mb-3">
+                    <p className="text-xs text-pine-600 font-semibold mb-4">
                       {loc.transitLine}
                     </p>
 
                     {/* Exact Spot */}
-                    <div className="p-3 bg-slate-50 rounded-xl border border-slate-100 mb-4 text-xs text-slate-700 flex items-start gap-2">
-                      <Navigation className="w-4 h-4 text-brand-600 shrink-0 mt-0.5" />
-                      <div>
-                        <strong className="text-slate-900 block font-semibold">Posisi Mesin di Lokasi:</strong>
-                        <span>{loc.exactSpot}</span>
-                      </div>
+                    <div className="p-3.5 bg-white rounded-xl mb-5 text-xs text-pine-800">
+                      <strong className="text-pine-900 block font-bold mb-0.5">Posisi Mesin di Lokasi:</strong>
+                      <span className="leading-relaxed">{loc.exactSpot}</span>
                     </div>
                   </div>
 
                   {/* Telemetry Footer */}
-                  <div className="pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-slate-600">
-                    <div className="flex items-center gap-1 text-teal-700 font-semibold">
-                      <Thermometer className="w-3.5 h-3.5" />
-                      <span>{loc.temperature}</span>
+                  <div className="pt-4 flex items-center justify-between text-xs text-pine-800">
+                    <div className="text-pine-900 font-bold">
+                      Suhu: <span className="font-extrabold text-pine-900">{loc.temperature}</span>
                     </div>
-                    <div className="flex items-center gap-1 text-emerald-600 font-semibold">
-                      <CheckCircle2 className="w-3.5 h-3.5" />
+                    <div className="flex items-center gap-1.5 text-emerald-800 font-bold">
+                      <span className="w-2 h-2 rounded-full bg-emerald-600 inline-block" />
                       <span>Stok {loc.stockLevel}</span>
                     </div>
                   </div>
@@ -203,17 +196,17 @@ export default function LocationFinder() {
             })}
           </div>
         ) : (
-          <div className="bg-slate-50 rounded-2xl border border-slate-200 p-8 text-center max-w-md mx-auto space-y-3">
-            <AlertCircle className="w-8 h-8 text-slate-400 mx-auto" />
-            <h3 className="text-sm font-bold text-slate-800">
+          <div className="bg-chalk-100 rounded-2xl border-2 border-pine-900 p-10 text-center max-w-md mx-auto space-y-3">
+            <AlertCircle className="w-8 h-8 text-pine-600 mx-auto" />
+            <h3 className="font-display text-xl font-black text-pine-900 uppercase">
               Lokasi Belum Terdaftar
             </h3>
-            <p className="text-xs text-slate-500">
+            <p className="text-sm text-pine-700">
               Saat ini Berobat aktif di Jabodetabek dan terus berekspansi ke kota-kota besar lainnya. Punya usulan titik penempatan mesin di gedung atau kampus Anda?
             </p>
             <a
               href="mailto:kemitraan@berobat.id?subject=Usulan%20Titik%20Mesin%20Berobat"
-              className="inline-block text-xs font-semibold text-brand-700 hover:underline pt-1"
+              className="inline-block text-xs font-bold text-signal-orange hover:underline pt-2 font-medium"
             >
               Ajukan Penempatan Unit Baru &rarr;
             </a>
@@ -223,4 +216,3 @@ export default function LocationFinder() {
     </section>
   );
 }
-

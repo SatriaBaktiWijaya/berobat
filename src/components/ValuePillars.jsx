@@ -1,77 +1,69 @@
 import React from 'react';
-import { Thermometer, ShieldCheck, Zap, Sparkles } from 'lucide-react';
+import { Thermometer, ShieldCheck, Zap } from 'lucide-react';
 
 export default function ValuePillars() {
-  const pillars = [
-    {
-      icon: Thermometer,
-      iconBg: 'bg-teal-50 text-teal-700 border-teal-200',
-      title: 'Suhu Farmasi Presisi (20–25°C)',
-      description: 'Dilengkapi pendingin aktif otomatis dan insulasi termal ganda yang memantau suhu 24 jam non-stop agar zat aktif obat tidak rusak oleh panas cuaca tropis.',
-      badge: 'Standar CPOB',
-    },
-    {
-      icon: ShieldCheck,
-      iconBg: 'bg-emerald-50 text-emerald-700 border-emerald-200',
-      title: '100% Obat Bebas Resmi BPOM',
-      description: 'Hanya menyediakan obat golongan Bebas (lingkaran hijau) dan Bebas Terbatas (lingkaran biru) langsung dari distributor farmasi bersertifikasi resmi.',
-      badge: 'Izin Edar Resmi',
-    },
-    {
-      icon: Zap,
-      iconBg: 'bg-amber-50 text-amber-700 border-amber-200',
-      title: 'Transaksi Kilat 30 Detik',
-      description: 'Cukup sentuh layar untuk memilih obat, scan barcode QRIS menggunakan e-wallet atau mobile banking apa saja, dan obat keluar secara higienis tanpa antre.',
-      badge: 'Cashless & QRIS',
-    },
-  ];
-
   return (
-    <section id="fitur" className="py-16 sm:py-20 bg-white border-b border-slate-200/70">
+    <section id="fitur" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-2xl mx-auto mb-14">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-brand-50 text-brand-700 border border-brand-200 mb-3">
-            <Sparkles className="w-3.5 h-3.5 text-brand-600" />
-            <span>Kualitas Terjamin</span>
-          </div>
-          <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
-            Mengapa Vending Machine Berobat Aman & Terpercaya?
+        <div className="max-w-3xl mb-14">
+          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-black text-pine-900 tracking-tight leading-tight uppercase">
+            Standar Keselamatan Farmasi di Ruang Publik
           </h2>
-          <p className="mt-3 text-slate-600 text-sm sm:text-base">
-            Kami menerapkan standar keselamatan farmasi ketat agar Anda selalu mendapatkan obat yang segar, aman, dan berkhasiat optimal kapan pun dibutuhkan.
+          <p className="mt-4 text-base sm:text-lg text-pine-700 leading-relaxed max-w-[60ch]">
+            Kami menerapkan kontrol ketat pada setiap unit agar obat yang Anda dapatkan tetap segar, higienis, dan berkhasiat maksimal sebagaimana standar apotek konvensional.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {pillars.map((pillar, index) => {
-            const Icon = pillar.icon;
-            return (
-              <div
-                key={index}
-                className="relative bg-slate-50/70 hover:bg-white rounded-2xl p-7 border border-slate-200 hover:border-brand-200 hover:shadow-lg hover:shadow-brand-500/5 transition-all duration-200 flex flex-col justify-between"
-              >
-                <div>
-                  <div className="flex items-center justify-between mb-5">
-                    <div className={`w-12 h-12 rounded-xl border flex items-center justify-center ${pillar.iconBg}`}>
-                      <Icon className="w-6 h-6" />
-                    </div>
-                    <span className="text-[11px] font-bold uppercase tracking-wider text-slate-500 bg-white px-2.5 py-1 rounded-md border border-slate-200">
-                      {pillar.badge}
-                    </span>
-                  </div>
-                  <h3 className="text-lg font-bold text-slate-900 mb-2.5">
-                    {pillar.title}
-                  </h3>
-                  <p className="text-sm text-slate-600 leading-relaxed">
-                    {pillar.description}
-                  </p>
-                </div>
-              </div>
-            );
-          })}
+        {/* Asymmetrical Editorial Specimen Layout without generic icon-card toppers */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+          {/* Main Hero Specimen: Temperature Control (Spans 6 cols) */}
+          <div className="lg:col-span-6 bg-pine-900 text-white rounded-2xl p-8 sm:p-10 flex flex-col justify-between motion-reveal">
+            <div>
+              <span className="font-display text-5xl sm:text-7xl font-black text-white tracking-tight block leading-none mb-6">
+                20°C – 25°C
+              </span>
+              <h3 className="text-2xl font-bold text-white mb-3">
+                Suhu Farmasi Presisi (20–25°C)
+              </h3>
+              <p className="text-base text-slate-300 leading-relaxed max-w-[50ch]">
+                Udara tropis yang panas dapat merusak komposisi zat aktif obat. Setiap vending machine Berobat dilengkapi pendingin presisi dengan isolasi termal ganda yang memantau suhu internal 24 jam sehari.
+              </p>
+            </div>
+            <div className="pt-6 mt-8 text-sm text-slate-300">
+              Kestabilan zat aktif paracetamol, antasida, dan cairan steril selalu terjamin.
+            </div>
+          </div>
+
+          {/* Secondary Stack: BPOM & 30-Second QRIS (Spans 6 cols) */}
+          <div className="lg:col-span-6 flex flex-col gap-6 justify-between">
+            {/* Box 1: BPOM Compliance */}
+            <div className="bg-chalk-100 rounded-2xl p-8 flex-1 flex flex-col justify-center motion-reveal">
+              <span className="font-display text-4xl sm:text-5xl font-black text-emerald-800 tracking-tight block leading-none mb-2">
+                100% RESMI
+              </span>
+              <h3 className="text-xl font-bold text-pine-900 mb-2">
+                100% Obat Bebas Resmi BPOM
+              </h3>
+              <p className="text-base text-pine-700 leading-relaxed max-w-[50ch]">
+                Kami hanya mendistribusikan obat resmi bertanda lingkaran hijau (Obat Bebas) dan lingkaran biru (Obat Bebas Terbatas) langsung dari pabrikan farmasi terdaftar di Indonesia.
+              </p>
+            </div>
+
+            {/* Box 2: 30-Second QRIS */}
+            <div className="bg-chalk-100 rounded-2xl p-8 flex-1 flex flex-col justify-center motion-reveal">
+              <span className="font-display text-4xl sm:text-5xl font-black text-pine-900 tracking-tight block leading-none mb-2">
+                30 DETIK
+              </span>
+              <h3 className="text-xl font-bold text-pine-900 mb-2">
+                Transaksi Kilat 30 Detik Tanpa Antre
+              </h3>
+              <p className="text-base text-pine-700 leading-relaxed max-w-[50ch]">
+                Sentuh layar sentuh HD, pilih obat, pindai barcode QRIS melalui GoPay, OVO, Dana, ShopeePay, atau mobile banking apa saja. Obat langsung keluar di baki sanitasi otomatis.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
   );
 }
-

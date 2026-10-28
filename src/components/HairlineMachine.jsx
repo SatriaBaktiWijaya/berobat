@@ -240,13 +240,13 @@ export default function HairlineMachine() {
         className="w-full h-full block"
       />
 
-      {/* Floating Interactive Badge */}
+      {/* Floating Interactive Badge (no emoji, clean typographic label) */}
       <div 
-        className={`absolute bottom-3 left-1/2 -translate-x-1/2 max-w-[90%] px-3.5 py-1.5 rounded-full text-xs font-medium bg-white/90 backdrop-blur-sm border border-slate-200/80 text-slate-600 shadow-sm transition-opacity duration-200 text-center ${
-          isHovered ? 'opacity-90' : 'opacity-70'
+        className={`absolute bottom-3 left-1/2 -translate-x-1/2 max-w-[90%] px-4 py-1.5 rounded-full text-xs font-semibold bg-chalk-100/95 text-pine-900 transition-opacity duration-200 text-center ${
+          isHovered ? 'opacity-100' : 'opacity-80'
         }`}
       >
-        <span>💡 Sentuh atau gerakkan kursor untuk memutar sudut mesin 3D</span>
+        <span>Sentuh atau gerakkan kursor untuk memutar sudut mesin 3D</span>
       </div>
     </div>
   );

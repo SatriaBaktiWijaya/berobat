@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Touchpad, QrCode, PackageCheck, Play, ArrowRight, Sparkles } from 'lucide-react';
+import { Touchpad, QrCode, PackageCheck, Play } from 'lucide-react';
 import VendingModalSimulation from './VendingModalSimulation';
 
 export default function HowItWorks() {
@@ -7,100 +7,74 @@ export default function HowItWorks() {
 
   const steps = [
     {
-      number: '01',
       title: '1. Pilih Obat di Layar',
-      desc: 'Sentuh layar interaktif mesin. Pilih berdasarkan gejala keluhan sakit yang sedang dialami atau langsung cari merek obat esensial yang biasa Anda gunakan.',
-      icon: Touchpad,
+      desc: 'Sentuh layar interaktif mesin. Pilih berdasarkan gejala keluhan sakit yang sedang dialami atau cari langsung merek obat bebas yang biasa Anda gunakan.',
       badge: 'Layar Sentuh HD',
     },
     {
-      number: '02',
       title: '2. Scan QRIS',
-      desc: 'Kode QRIS dinamis akan muncul seketika di layar. Buka aplikasi e-wallet atau mobile banking favorit Anda, arahkan kamera, dan selesaikan pembayaran.',
-      icon: QrCode,
+      desc: 'Kode QRIS dinamis akan muncul seketika di layar. Buka aplikasi e-wallet atau mobile banking apa saja, arahkan kamera, dan selesaikan pembayaran.',
       badge: 'Semua E-Wallet',
     },
     {
-      number: '03',
       title: '3. Ambil Obat Higienis',
-      desc: 'Sistem kompartemen otomatis akan mengantarkan obat ke baki bawah yang terjaga kebersihannya. Dorong penutup lembut dan obat siap Anda konsumsi.',
-      icon: PackageCheck,
+      desc: 'Sistem kompartemen internal mengantarkan obat ke baki bawah yang terjaga kebersihannya. Dorong penutup lembut dan obat siap Anda konsumsi.',
       badge: 'Selesai 30 Detik',
     },
   ];
 
   return (
-    <section id="cara-pakai" className="py-16 sm:py-24 bg-gradient-to-b from-white via-brand-50/20 to-slate-50 border-b border-slate-200/80">
+    <section id="cara-pakai" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center max-w-2xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-brand-100/70 text-brand-800 border border-brand-200 mb-3">
-            <Sparkles className="w-3.5 h-3.5 text-brand-600" />
-            <span>Mudah & Tanpa Antre</span>
-          </div>
-          <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+        <div className="max-w-3xl mb-14">
+          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-black text-pine-900 tracking-tight leading-tight uppercase">
             Cara Praktis Membeli Obat di Mesin Berobat
           </h2>
-          <p className="mt-3 text-sm sm:text-base text-slate-600">
+          <p className="mt-4 text-base sm:text-lg text-pine-700 leading-relaxed max-w-[60ch]">
             Didesain khusus untuk situasi mendesak. Seluruh proses transaksi berlangsung cepat hanya dalam 3 langkah sederhana di bawah 30 detik.
           </p>
         </div>
 
-        {/* 3 Steps Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12 relative">
-          {steps.map((s, idx) => {
-            const Icon = s.icon;
-            return (
-              <div
-                key={idx}
-                className="bg-white rounded-2xl p-8 border border-slate-200/90 shadow-sm hover:shadow-md hover:border-brand-300 transition-all flex flex-col justify-between relative group"
-              >
-                <div>
-                  <div className="flex items-center justify-between mb-6">
-                    <span className="text-3xl font-black text-brand-200 group-hover:text-brand-300 font-mono transition-colors">
-                      {s.number}
-                    </span>
-                    <span className="text-[11px] font-bold text-brand-700 bg-brand-50 border border-brand-200 px-2.5 py-1 rounded-full">
-                      {s.badge}
-                    </span>
-                  </div>
-
-                  <div className="w-12 h-12 rounded-xl bg-brand-50 text-brand-700 flex items-center justify-center mb-5 group-hover:bg-brand-600 group-hover:text-white transition-colors">
-                    <Icon className="w-6 h-6" />
-                  </div>
-
-                  <h3 className="text-lg font-bold text-slate-900 mb-2">
-                    {s.title}
-                  </h3>
-                  <p className="text-sm text-slate-600 leading-relaxed">
-                    {s.desc}
-                  </p>
-                </div>
+        {/* 3 Steps Editorial Columns without generic icon-card toppers */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-14">
+          {steps.map((s, idx) => (
+            <div
+              key={idx}
+              className="bg-chalk-100 rounded-2xl p-8 flex flex-col justify-between motion-reveal"
+            >
+              <div>
+                <h3 className="font-display text-2xl sm:text-3xl font-black text-pine-900 uppercase tracking-tight mb-3">
+                  {s.title}
+                </h3>
+                <p className="text-base text-pine-700 leading-relaxed mb-4">
+                  {s.desc}
+                </p>
+                <span className="text-xs font-semibold text-pine-600 block">
+                  {s.badge}
+                </span>
               </div>
-            );
-          })}
+            </div>
+          ))}
         </div>
 
         {/* Interactive Simulation Banner CTA */}
-        <div className="bg-gradient-to-r from-brand-900 via-teal-900 to-slate-900 rounded-3xl p-8 sm:p-10 text-white shadow-xl flex flex-col md:flex-row items-center justify-between gap-6">
-          <div className="space-y-2 text-center md:text-left">
-            <span className="text-xs font-mono font-bold text-teal-300 uppercase tracking-wider block">
-              Simulasi Interaktif
-            </span>
-            <h3 className="text-xl sm:text-2xl font-bold text-white">
-              Penasaran Bagaimana Rasanya Belanja di Mesin Berobat?
+        <div className="bg-pine-900 rounded-3xl p-8 sm:p-12 text-white flex flex-col md:flex-row items-center justify-between gap-8 motion-reveal">
+          <div className="space-y-3 text-center md:text-left max-w-xl">
+            <h3 className="font-display text-3xl sm:text-4xl font-black text-white uppercase tracking-tight leading-tight">
+              Simulasi Belanja di Mesin
             </h3>
-            <p className="text-sm text-slate-300 max-w-xl">
-              Coba langsung simulasi layar sentuh mesin Berobat di layar browser Anda sekarang. Tanpa perlu uang sungguhan.
+            <p className="text-base text-slate-300 leading-relaxed">
+              Rasakan pengalaman sentuh layar, simulasi pembayaran QRIS, dan pengambilan obat langsung di browser Anda sekarang.
             </p>
           </div>
 
           <button
             type="button"
             onClick={() => setIsModalOpen(true)}
-            className="shrink-0 inline-flex items-center gap-2.5 px-6 py-4 rounded-xl text-sm font-bold bg-white text-slate-900 hover:bg-teal-50 active:scale-95 shadow-lg transition-all"
+            className="shrink-0 inline-flex items-center gap-3 px-8 py-4 rounded-xl text-base font-bold bg-signal-orange text-white hover:bg-signal-hover active:bg-signal-hover transition-transform hover:-translate-y-0.5"
           >
-            <Play className="w-4 h-4 text-brand-700 fill-brand-700" />
+            <Play className="w-5 h-5 fill-current" />
             <span>Coba Simulasi Beli Sekarang</span>
           </button>
         </div>
@@ -114,4 +88,3 @@ export default function HowItWorks() {
     </section>
   );
 }
-

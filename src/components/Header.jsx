@@ -1,80 +1,89 @@
 import React, { useState } from 'react';
-import { Menu, X, MapPin, Pill, ShieldCheck } from 'lucide-react';
+import { Menu, X, MapPin } from 'lucide-react';
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200/80 transition-all">
+    <header className="sticky top-0 z-50 bg-[#FAFAF9]/95 backdrop-blur-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 sm:h-20">
-          {/* Logo & Status Badge */}
-          <div className="flex items-center gap-3">
+        <div className="flex items-center justify-between h-20">
+          {/* Logo & Brand Identity */}
+          <div className="flex items-center gap-4">
             <a 
               href="#" 
-              className="flex items-center gap-2.5 text-brand-800 font-extrabold text-xl tracking-tight focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 rounded-lg p-1"
+              className="flex items-center gap-3 text-pine-900 group focus:outline-none focus-visible:ring-2 focus-visible:ring-pine-800 rounded-lg p-1"
               aria-label="Berobat Beranda"
             >
-              <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-brand-700 to-brand-500 text-white flex items-center justify-center shadow-sm shadow-brand-500/20">
-                <Pill className="w-5 h-5 -rotate-45" />
+              {/* Bespoke Geometric Medical Cross Emblem */}
+              <div className="w-10 h-10 bg-pine-900 text-white rounded-lg flex items-center justify-center p-2 relative">
+                <svg viewBox="0 0 24 24" fill="none" className="w-6 h-6" stroke="currentColor" strokeWidth="2.75" strokeLinecap="square">
+                  <path d="M12 4v16M4 12h16" />
+                </svg>
+                <div className="absolute -top-1 -right-1 w-2.5 h-2.5 bg-signal-orange rounded-full border-2 border-white" />
               </div>
-              <span className="text-2xl font-bold bg-gradient-to-r from-brand-800 to-brand-600 bg-clip-text text-transparent">
-                Berobat
-              </span>
+              <div className="flex flex-col">
+                <span className="font-display text-3xl font-black tracking-tight text-pine-900 leading-none">
+                  BEROBAT
+                </span>
+                <span className="text-xs font-medium text-pine-700 font-sans mt-0.5">
+                  Smart Medical Station
+                </span>
+              </div>
             </a>
 
-            {/* 24/7 Live Status Indicator */}
-            <div className="hidden sm:inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200">
-              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" aria-hidden="true" />
-              <span>24/7 Siap Sedia</span>
+            {/* 24/7 Status Badge */}
+            <div className="hidden lg:flex items-center gap-2 pl-4 text-xs font-semibold text-pine-800">
+              <span className="w-2 h-2 rounded-full bg-emerald-600" />
+              <span>24/7 Siap Sedia di Ruang Publik</span>
             </div>
           </div>
 
-          {/* Desktop Navigation */}
+          {/* Navigation Links */}
           <nav className="hidden md:flex items-center gap-8" aria-label="Navigasi Utama">
             <a 
               href="#katalog" 
-              className="text-sm font-medium text-slate-600 hover:text-brand-700 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 rounded px-1 py-1"
+              className="text-base font-semibold text-pine-900 hover:text-signal-orange transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-pine-800 rounded py-1"
             >
               Katalog Obat
             </a>
             <a 
               href="#fitur" 
-              className="text-sm font-medium text-slate-600 hover:text-brand-700 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 rounded px-1 py-1"
+              className="text-base font-semibold text-pine-900 hover:text-signal-orange transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-pine-800 rounded py-1"
             >
               Standar Mutu
             </a>
             <a 
               href="#lokasi" 
-              className="text-sm font-medium text-slate-600 hover:text-brand-700 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 rounded px-1 py-1"
+              className="text-base font-semibold text-pine-900 hover:text-signal-orange transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-pine-800 rounded py-1"
             >
               Titik Mesin
             </a>
             <a 
               href="#cara-pakai" 
-              className="text-sm font-medium text-slate-600 hover:text-brand-700 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 rounded px-1 py-1"
+              className="text-base font-semibold text-pine-900 hover:text-signal-orange transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-pine-800 rounded py-1"
             >
               Cara Beli
             </a>
           </nav>
 
-          {/* Right Action CTA */}
+          {/* Right Action Button */}
           <div className="hidden md:flex items-center gap-3">
             <a
               href="#lokasi"
-              className="inline-flex items-center justify-center gap-2 px-4 py-2.5 text-sm font-semibold text-white bg-brand-700 hover:bg-brand-800 active:bg-brand-900 rounded-xl shadow-sm shadow-brand-700/20 transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-brand-600"
+              className="inline-flex items-center justify-center gap-2 px-5 py-3 text-sm font-bold text-white bg-pine-900 hover:bg-pine-800 active:bg-pine-950 rounded-lg transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-pine-800"
             >
-              <MapPin className="w-4 h-4" />
-              <span>Cari Mesin Terdekat</span>
+              <MapPin className="w-4 h-4 text-signal-orange" />
+              <span>Temukan Mesin</span>
             </a>
           </div>
 
-          {/* Mobile Hamburger Toggle */}
-          <div className="flex md:hidden items-center gap-2">
+          {/* Mobile Menu Button */}
+          <div className="flex md:hidden items-center">
             <button
               type="button"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2.5 rounded-lg text-slate-600 hover:text-slate-900 hover:bg-slate-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500"
+              className="p-2.5 rounded-lg text-pine-900 hover:bg-chalk-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-pine-800"
               aria-expanded={mobileMenuOpen}
               aria-label={mobileMenuOpen ? "Tutup menu" : "Buka menu navigasi"}
             >
@@ -83,38 +92,38 @@ export default function Header() {
           </div>
         </div>
 
-        {/* Mobile Dropdown Menu */}
+        {/* Mobile Navigation Dropdown */}
         {mobileMenuOpen && (
-          <div className="md:hidden py-4 border-t border-slate-100 space-y-2 animate-in fade-in slide-in-from-top-2 duration-150">
-            <div className="px-3 pb-2 flex items-center gap-1.5 text-xs font-semibold text-emerald-700">
-              <span className="w-2 h-2 rounded-full bg-emerald-500" />
+          <div className="md:hidden py-4 border-t border-chalk-200 space-y-2">
+            <div className="px-3 pb-2 text-xs font-semibold text-pine-700 flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-emerald-600" />
               <span>24/7 Siap Sedia di Ruang Publik</span>
             </div>
             <a
               href="#katalog"
               onClick={() => setMobileMenuOpen(false)}
-              className="block px-3 py-2.5 rounded-lg text-base font-medium text-slate-700 hover:bg-slate-50 hover:text-brand-700"
+              className="block px-3 py-2.5 rounded-lg text-base font-semibold text-pine-900 hover:bg-chalk-100"
             >
               Katalog Obat
             </a>
             <a
               href="#fitur"
               onClick={() => setMobileMenuOpen(false)}
-              className="block px-3 py-2.5 rounded-lg text-base font-medium text-slate-700 hover:bg-slate-50 hover:text-brand-700"
+              className="block px-3 py-2.5 rounded-lg text-base font-semibold text-pine-900 hover:bg-chalk-100"
             >
               Standar Mutu
             </a>
             <a
               href="#lokasi"
               onClick={() => setMobileMenuOpen(false)}
-              className="block px-3 py-2.5 rounded-lg text-base font-medium text-slate-700 hover:bg-slate-50 hover:text-brand-700"
+              className="block px-3 py-2.5 rounded-lg text-base font-semibold text-pine-900 hover:bg-chalk-100"
             >
               Titik Mesin
             </a>
             <a
               href="#cara-pakai"
               onClick={() => setMobileMenuOpen(false)}
-              className="block px-3 py-2.5 rounded-lg text-base font-medium text-slate-700 hover:bg-slate-50 hover:text-brand-700"
+              className="block px-3 py-2.5 rounded-lg text-base font-semibold text-pine-900 hover:bg-chalk-100"
             >
               Cara Beli
             </a>
@@ -122,10 +131,10 @@ export default function Header() {
               <a
                 href="#lokasi"
                 onClick={() => setMobileMenuOpen(false)}
-                className="w-full inline-flex items-center justify-center gap-2 px-4 py-3 text-sm font-semibold text-white bg-brand-700 hover:bg-brand-800 rounded-xl shadow-sm"
+                className="w-full inline-flex items-center justify-center gap-2 px-4 py-3 text-sm font-bold text-white bg-pine-900 hover:bg-pine-800 rounded-lg"
               >
-                <MapPin className="w-4 h-4" />
-                <span>Cari Mesin Terdekat</span>
+                <MapPin className="w-4 h-4 text-signal-orange" />
+                <span>Temukan Mesin Terdekat</span>
               </a>
             </div>
           </div>
@@ -134,4 +143,3 @@ export default function Header() {
     </header>
   );
 }
-
