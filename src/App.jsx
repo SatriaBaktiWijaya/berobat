@@ -2,6 +2,7 @@ import React from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import ValuePillars from './components/ValuePillars';
+import MedicineCatalog from './components/MedicineCatalog';
 import Footer from './components/Footer';
 
 export default function App() {
@@ -11,6 +12,7 @@ export default function App() {
       <main className="flex-1">
         <Hero />
         <ValuePillars />
+        <MedicineCatalog />
       </main>
       <Footer />
     </div>
