@@ -3,6 +3,7 @@ import Header from './components/Header';
 import Hero from './components/Hero';
 import ValuePillars from './components/ValuePillars';
 import MedicineCatalog from './components/MedicineCatalog';
+import LocationFinder from './components/LocationFinder';
 import Footer from './components/Footer';
 
 export default function App() {
@@ -13,6 +14,7 @@ export default function App() {
         <Hero />
         <ValuePillars />
         <MedicineCatalog />
+        <LocationFinder />
       </main>
       <Footer />
     </div>
